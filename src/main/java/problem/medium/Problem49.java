@@ -13,6 +13,10 @@ public class Problem49 {
      */
     public static List<String> capitalizeFirstLetter(List<String> strings) {
         // 여기에 코드 작성
-        return null;
+        return strings.stream()
+                .map(StringBuilder::new)
+                .map(s -> s.replace(0, 1, s.substring(0, 1).toUpperCase()))
+                .map(StringBuilder::toString)
+                .toList();
     }
 }

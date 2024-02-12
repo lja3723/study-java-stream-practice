@@ -1,7 +1,10 @@
 package problem.medium;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import problem.medium.resources.Customer2;
+import problem.medium.resources.Order;
 
 public class Problem53 {
 
@@ -13,6 +16,14 @@ public class Problem53 {
      */
     public static List<String> getTotalMilkOrdersForEachCustomer(List<Customer2> customers) {
         // 여기에 코드 작성
-        return null;
+        return customers.stream()
+                .map(c -> String.format("%s: %d",
+                        c.getName(),
+                        c.getOrders().stream()
+                                .filter(o -> o.getProduct().equals("Milk"))
+                                .mapToInt(Order::getQuantity)
+                                .sum()))
+                .toList();
+
     }
 }

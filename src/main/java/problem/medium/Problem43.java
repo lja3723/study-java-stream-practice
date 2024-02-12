@@ -1,6 +1,9 @@
 package problem.medium;
 
+import java.util.AbstractMap;
 import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Problem43 {
 
@@ -14,6 +17,9 @@ public class Problem43 {
      */
     public static List<String> filterStringsByLength(List<String> strings, List<Integer> lengths) {
         // 여기에 코드 작성
-        return null;
+        return IntStream.iterate(0, i -> i + 1).limit(strings.size())
+                .filter(i -> strings.get(i).length() <= lengths.get(i))
+                .mapToObj(strings::get)
+                .toList();
     }
 }

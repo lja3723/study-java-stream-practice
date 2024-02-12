@@ -14,6 +14,10 @@ public class Problem51 {
      */
     public static List<String> getNamesOfITDepartmentEmployeesOver30(List<Employee> employees) {
         // 여기에 코드 작성
-        return null;
+        return employees.stream()
+                .filter(e -> e.getDepartment().equals("IT") && e.getAge() >= 30)
+                .map(Employee::getName)
+                .sorted()
+                .toList();
     }
 }

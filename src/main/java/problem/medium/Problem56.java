@@ -13,6 +13,9 @@ public class Problem56 {
      */
     public static List<String> getNamesOfSalesDepartmentEmployees(List<Employee> employees) {
         // 여기에 코드 작성
-        return null;
+        return employees.stream()
+                .filter(e -> e.getDepartment().equals("Sales"))
+                .map(Employee::getName)
+                .toList();
     }
 }

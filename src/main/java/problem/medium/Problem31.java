@@ -13,6 +13,11 @@ public class Problem31 {
      */
     public static List<String> transformAndSortStrings(List<String> strings) {
         // 여기에 코드 작성
-        return null;
+        return strings.stream()
+                .filter(s -> 3 <= s.length() && s.length() <= 7)
+                .filter(s -> s.contains("e"))
+                .map(String::toUpperCase)
+                .sorted()
+                .toList();
     }
 }

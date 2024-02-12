@@ -2,6 +2,8 @@ package problem.medium;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 import problem.medium.resources.Product;
 
 public class Problem59 {
@@ -15,6 +17,11 @@ public class Problem59 {
      */
     public static Map<Character, Double> getTotalPriceByCategory(List<Product> products) {
         // 여기에 코드 작성
-        return null;
+        return products.stream().collect(Collectors.groupingBy(
+                Product::getName,
+                Collectors.summarizingDouble(Product::getPrice))
+            ).entrySet().stream().collect(Collectors.toMap(
+                k -> k.getKey().toUpperCase().charAt(0),
+                v -> v.getValue().getSum()));
     }
 }

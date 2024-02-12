@@ -13,6 +13,11 @@ public class Problem42 {
      */
     public static int sumSpecialMultiples(List<Integer> numbers) {
         // 여기에 코드 작성
-        return 0;
+        return numbers.stream()
+                .mapToInt(i -> {
+                    if (i % 5 == 0) return 2 * i;
+                    return i;
+                })
+                .sum();
     }
 }

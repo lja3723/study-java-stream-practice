@@ -12,6 +12,9 @@ public class Problem32 {
      */
     public static List<Integer> filterAndSquareNumbers(List<Integer> numbers) {
         // 여기에 코드 작성
-        return null;
+        return numbers.stream()
+                .filter(i -> 10 <= i && i <= 20)
+                .map(i -> i*i)
+                .toList();
     }
 }
