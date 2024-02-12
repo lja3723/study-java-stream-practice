@@ -1,6 +1,7 @@
 package problem.easy;
 
 import java.util.List;
+import java.util.function.Function;
 
 public class Problem3 {
 
@@ -12,6 +13,8 @@ public class Problem3 {
      */
     public static double sumOfList(List<Double> numbers) {
         // 여기에 코드 작성
-        return 0.0;
+        return numbers.stream()
+                .mapToDouble(i -> i)
+                .sum();
     }
 }

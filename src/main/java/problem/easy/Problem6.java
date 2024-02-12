@@ -1,6 +1,7 @@
 package problem.easy;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Problem6 {
 
@@ -12,6 +13,6 @@ public class Problem6 {
      */
     public static List<Integer> removeDuplicates(List<Integer> numbers) {
         // 여기에 코드 작성
-        return null;
+        return numbers.stream().distinct().toList();
     }
 }
